@@ -8,8 +8,8 @@ import (
     "time"
     
      _ "modernc.org/sqlite"
-    "github.com/gorelay/gorelay/storage"
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/storage"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 type SQLiteStore struct {

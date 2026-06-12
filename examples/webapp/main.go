@@ -6,7 +6,7 @@ import (
     "net/http"
     "time"
     
-    "github.com/gorelay/gorelay"
+    "github.com/amitstephen-dev/gorelay"
 )
 
 type User struct {

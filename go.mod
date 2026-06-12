@@ -1,4 +1,4 @@
-module github.com/gorelay/gorelay
+module github.com/amitstephen-dev/gorelay
 
 go 1.26.3
 

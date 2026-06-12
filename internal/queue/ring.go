@@ -4,7 +4,7 @@ import (
     "sync/atomic"
     "unsafe"
     
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 type RingBuffer struct {

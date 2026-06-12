@@ -6,8 +6,8 @@ import (
     "sync"
     "time"
     
-    "github.com/gorelay/gorelay/storage"
-    // "github.com/gorelay/gorelay/task"  ← Remove this, it's not used
+    "github.com/amitstephen-dev/gorelay/storage"
+    // "github.com/amitstephen-dev/gorelay/task"  ← Remove this, it's not used
 )
 
 type Scheduler struct {

@@ -5,13 +5,13 @@ import (
     "encoding/json"
     "time"
     
-    "github.com/gorelay/gorelay/registry"
-    "github.com/gorelay/gorelay/storage"
-    "github.com/gorelay/gorelay/storage/sqlite"
-    "github.com/gorelay/gorelay/task"
-    "github.com/gorelay/gorelay/worker"
-    "github.com/gorelay/gorelay/scheduler"
-    "github.com/gorelay/gorelay/dashboard"
+    "github.com/amitstephen-dev/gorelay/registry"
+    "github.com/amitstephen-dev/gorelay/storage"
+    "github.com/amitstephen-dev/gorelay/storage/sqlite"
+    "github.com/amitstephen-dev/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/worker"
+    "github.com/amitstephen-dev/gorelay/scheduler"
+    "github.com/amitstephen-dev/gorelay/dashboard"
 )
 
 type Relay struct {

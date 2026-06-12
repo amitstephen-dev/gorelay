@@ -7,8 +7,8 @@ import (
     "time"
     
     _ "github.com/lib/pq"
-    "github.com/gorelay/gorelay/storage"
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/storage"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 type PostgresStore struct {

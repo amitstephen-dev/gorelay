@@ -5,8 +5,8 @@ import (
     "log"
     "time"
     
-    "github.com/gorelay/gorelay"
-    // Remove this line: "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay"
+    // Remove this line: "github.com/amitstephen-dev/gorelay/task"
 )
 
 type JobPayload struct {

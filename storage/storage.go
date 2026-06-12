@@ -2,7 +2,7 @@ package storage
 
 import (
     "time"
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 type Storage interface {

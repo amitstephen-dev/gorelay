@@ -7,8 +7,8 @@ import (
     "time"
     
     "github.com/redis/go-redis/v9"
-    "github.com/gorelay/gorelay/storage"
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/storage"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 type RedisStore struct {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GoRelay - Durable Task Queue for Go
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/gorelay/gorelay)](https://goreportcard.com/report/github.com/gorelay/gorelay)
@@ -23,7 +24,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gorelay/gorelay"
+    "github.com/amitstephen-dev/gorelay"
 )
 
 type EmailPayload struct {
@@ -89,3 +90,4 @@ func main() {
     fmt.Println("Contains duplicates:", hasDup)
     fmt.Println("Duplicate values:", values)
 }
+

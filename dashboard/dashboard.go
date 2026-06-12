@@ -7,8 +7,8 @@ import (
     "net/http"
     "strings"
     "io/fs"
-    "github.com/gorelay/gorelay/storage"
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/storage"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 //go:embed templates/* static/*

@@ -3,7 +3,7 @@ package pool
 import (
     "sync"
     
-    "github.com/gorelay/gorelay/task"
+    "github.com/amitstephen-dev/gorelay/task"
 )
 
 var TaskPool = sync.Pool{

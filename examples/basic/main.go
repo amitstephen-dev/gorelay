@@ -4,7 +4,7 @@ import (
     "fmt"
     "time"
     
-    "github.com/gorelay/gorelay"
+    "github.com/amitstephen-dev/gorelay"
 )
 
 type EmailPayload struct {
