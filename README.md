@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # GoRelay - Durable Task Queue for Go
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/gorelay/gorelay)](https://goreportcard.com/report/github.com/gorelay/gorelay)
