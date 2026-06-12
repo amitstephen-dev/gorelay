@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoRelay Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>GoRelay Dashboard</h1>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/tasks/pending">Pending</a>
+            <a href="/tasks/running">Running</a>
+            <a href="/tasks/completed">Completed</a>
+            <a href="/tasks/failed">Failed</a>
+            <a href="/tasks/dead">Dead Letter</a>
+        </nav>
+    </header>
+    <main>
+        {{block "content" .}}{{end}}
+    </main>
+    <footer>
+        <p>GoRelay - Durable Task Queue for Go</p>
+    </footer>
+</body>
+</html>

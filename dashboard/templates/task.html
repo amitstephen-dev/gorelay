@@ -1,0 +1,73 @@
+{{define "content"}}
+<div class="task-detail">
+    <h2>Task Details</h2>
+    <div id="task-info">
+        Loading task...
+    </div>
+    
+    <h3>Timeline</h3>
+    <div id="task-timeline">
+        Loading timeline...
+    </div>
+    
+    <div class="actions">
+        <button onclick="retryTask()">Retry Task</button>
+        <button onclick="deleteTask()">Delete Task</button>
+    </div>
+</div>
+
+<script>
+    const taskId = window.location.pathname.split('/').pop();
+    
+    async function loadTask() {
+        const response = await fetch(`/api/task/${taskId}`);
+        const task = await response.json();
+        
+        document.getElementById('task-info').innerHTML = `
+            <table>
+                <tr><th>ID:</th><td>${task.id}</td></tr>
+                <tr><th>Topic:</th><td>${task.topic}</td></tr>
+                <tr><th>Status:</th><td><span class="status-${task.status}">${task.status}</span></td></tr>
+                <tr><th>Priority:</th><td>${task.priority}</td></tr>
+                <tr><th>Retries:</th><td>${task.retry_count}/${task.max_retries}</td></tr>
+                ${task.last_error ? `<tr><th>Last Error:</th><td class="error">${task.last_error}</td></tr>` : ''}
+                <tr><th>Created:</th><td>${new Date(task.created_at).toLocaleString()}</td></tr>
+                <tr><th>Updated:</th><td>${new Date(task.updated_at).toLocaleString()}</td></tr>
+                ${task.completed_at ? `<tr><th>Completed:</th><td>${new Date(task.completed_at).toLocaleString()}</td></tr>` : ''}
+                <tr><th>Payload:</th><td><pre>${JSON.stringify(task.payload, null, 2)}</pre></td></tr>
+            </table>
+        `;
+        
+        // Load timeline
+        const historyResponse = await fetch(`/api/task/${taskId}/history`);
+        const history = await historyResponse.json();
+        
+        const timeline = document.getElementById('task-timeline');
+        timeline.innerHTML = '<div class="timeline">';
+        for (const event of history) {
+            timeline.innerHTML += `
+                <div class="timeline-event">
+                    <div class="event-time">${new Date(event.created_at).toLocaleTimeString()}</div>
+                    <div class="event-badge ${event.event}">${event.event}</div>
+                    <div class="event-message">${event.message || ''}</div>
+                </div>
+            `;
+        }
+        timeline.innerHTML += '</div>';
+    }
+    
+    async function retryTask() {
+        await fetch(`/api/task/${taskId}/retry`, { method: 'POST' });
+        window.location.href = '/';
+    }
+    
+    async function deleteTask() {
+        if (confirm('Delete this task?')) {
+            await fetch(`/api/task/${taskId}`, { method: 'DELETE' });
+            window.location.href = '/';
+        }
+    }
+    
+    loadTask();
+</script>
+{{end}}

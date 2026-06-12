@@ -1,0 +1,93 @@
+{{define "content"}}
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>Pending</h3>
+        <div class="stat-value" id="stat-pending">0</div>
+    </div>
+    <div class="stat-card">
+        <h3>Running</h3>
+        <div class="stat-value" id="stat-running">0</div>
+    </div>
+    <div class="stat-card">
+        <h3>Completed</h3>
+        <div class="stat-value" id="stat-completed">0</div>
+    </div>
+    <div class="stat-card">
+        <h3>Failed</h3>
+        <div class="stat-value" id="stat-failed">0</div>
+    </div>
+    <div class="stat-card">
+        <h3>Dead Letter</h3>
+        <div class="stat-value" id="stat-dead">0</div>
+    </div>
+    <div class="stat-card total">
+        <h3>Total Tasks</h3>
+        <div class="stat-value" id="stat-total">0</div>
+    </div>
+</div>
+
+<div class="tasks-section">
+    <h2>Recent Tasks</h2>
+    <table id="tasks-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Topic</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Retries</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tasks-list">
+            <tr>
+                <td colspan="7">Loading tasks...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    async function loadStats() {
+        const response = await fetch('/api/stats');
+        const stats = await response.json();
+        document.getElementById('stat-pending').textContent = stats.pending;
+        document.getElementById('stat-running').textContent = stats.running;
+        document.getElementById('stat-completed').textContent = stats.completed;
+        document.getElementById('stat-failed').textContent = stats.failed;
+        document.getElementById('stat-dead').textContent = stats.dead;
+        document.getElementById('stat-total').textContent = stats.total;
+    }
+    
+    async function loadTasks() {
+        const response = await fetch('/api/tasks?limit=50');
+        const tasks = await response.json();
+        const tbody = document.getElementById('tasks-list');
+        tbody.innerHTML = '';
+        
+        for (const task of tasks) {
+            const row = tbody.insertRow();
+            row.insertCell(0).textContent = task.id;
+            row.insertCell(1).textContent = task.topic;
+            row.insertCell(2).innerHTML = `<span class="status-${task.status}">${task.status}</span>`;
+            row.insertCell(3).textContent = task.priority;
+            row.insertCell(4).textContent = `${task.retry_count}/${task.max_retries}`;
+            row.insertCell(5).textContent = new Date(task.created_at).toLocaleString();
+            const actions = row.insertCell(6);
+            const viewBtn = document.createElement('button');
+            viewBtn.textContent = 'View';
+            viewBtn.onclick = () => window.location.href = `/task/${task.id}`;
+            actions.appendChild(viewBtn);
+        }
+    }
+    
+    setInterval(() => {
+        loadStats();
+        loadTasks();
+    }, 3000);
+    
+    loadStats();
+    loadTasks();
+</script>
+{{end}}
