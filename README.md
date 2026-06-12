@@ -229,4 +229,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
+<<<<<<< HEAD
 **Made with ❤️ for Go developers**
+=======
+**Made with ❤️ for Go developers**
+>>>>>>> d1ce3cba3338ab339c46239c6bb19693c00fbdf0
