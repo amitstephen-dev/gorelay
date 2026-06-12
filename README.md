@@ -1,8 +1,12 @@
 # GoRelay - Durable Task Queue for Go
 
+[![Go Version](https://img.shields.io/github/go-mod/go-version/amitstephen-dev/gorelay)](https://golang.org)
+[![GitHub release](https://img.shields.io/github/v/release/amitstephen-dev/gorelay)](https://github.com/amitstephen-dev/gorelay/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/amitstephen-dev/gorelay)](https://goreportcard.com/report/github.com/amitstephen-dev/gorelay)
 [![Go Reference](https://pkg.go.dev/badge/github.com/amitstephen-dev/gorelay.svg)](https://pkg.go.dev/github.com/amitstephen-dev/gorelay)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/amitstephen-dev/gorelay)](https://github.com/amitstephen-dev/gorelay/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/amitstephen-dev/gorelay)](https://github.com/amitstephen-dev/gorelay/issues)
 
 GoRelay is a simple, durable background job library for Go. Turn any function into a crash-resistant, retryable task with zero infrastructure required.
 
